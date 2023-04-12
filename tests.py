@@ -6,3 +6,9 @@ from functions import *
 print("Test PGCD :")
 print(pgcd(11, 5))
 print()
+
+# ---------------- TEST DE PRIMALITE ----------------
+print("Test de primalité :")
+print(test_de_primalite(12))
+print(test_de_primalite(7))
+print()
