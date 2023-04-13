@@ -30,3 +30,14 @@ print()
 
 x = calculer_taille_bloc(nombre_de_caracteres, n)
 print("x =", x)
+
+# Codage : Transformer un texte en code
+texte = "BONJOUR"
+texte_chiffre = text_to_code(texte, dictionnaire)
+
+# Décodage : Transformer un code en texte
+texte_dechiffre = code_to_text(texte_chiffre, dictionnaire)
+
+print("texte =", texte)
+print("texte_chiffre =", texte_chiffre)
+print("texte_dechiffre =", texte_dechiffre)

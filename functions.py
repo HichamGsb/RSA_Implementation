@@ -133,12 +133,12 @@ def factorisation(n):
     return None, None
 
 # ---------------- MANIPULATION D'UN DICTIONNAIRE ----------------
-def afficher_clef(dictionnaire, x):
+def recuperer_clef(dictionnaire, x):
     for clef, valeur in dictionnaire.items():
         if valeur == x:
             return clef
 
-def afficher_valeur(dictionnaire, x):
+def recuperer_valeur(dictionnaire, x):
     for clef, valeur in dictionnaire.items():
         if clef == x:
             return valeur
@@ -155,3 +155,18 @@ def calculer_taille_bloc(nombre_de_caracteres, n):
         x = nombre_de_caracteres**taille_bloc
         taille_bloc += 1
     return taille_bloc - 2
+
+# ---------------- TRANSFORMER UN TEXTE EN CHIFFRES ----------------
+# CODAGE : Transformer un texte en chiffres
+def text_to_code(texte, dictionnaire):
+    liste_chiffres = []
+    for i in texte:
+        liste_chiffres.append(recuperer_clef(dictionnaire, i))
+    return liste_chiffres
+
+# DECODAGE : Transformer les chiffres en texte
+def code_to_text(code, dictionnaire):
+    liste_caracteres = []
+    for i in code:
+        liste_caracteres.append(recuperer_valeur(dictionnaire, i))
+    return liste_caracteres
