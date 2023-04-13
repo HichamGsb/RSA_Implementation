@@ -17,7 +17,7 @@ print()
 print("Test de l'algorithme d'Euclide étendu :")
 a = 11
 b = 55
-u, v, pgcd, reste = algo_euclide_etendu(a, b)
+pgcd, u, v, reste = algo_euclide_etendu(a, b)
 print("a = ", a)
 print("b = ", b)
 print("u = ", u)

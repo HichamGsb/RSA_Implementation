@@ -37,12 +37,12 @@ def test_de_primalite(number):
     # Il existe k € phi(n) tel que e*d + k*phi(n) = 1
 def algo_euclide_etendu(a, b):
     if b == 0:
-        return 1, 0, a, 0
+        return a, 1, 0, 0
     elif(a % b == 0):
-        return 0, 1, b, a % b
+        return b, 0, 1, a % b
     else:
-        u, v, pgcd, reste = algo_euclide_etendu(b, a % b)
-        return v, u - v * (a // b), pgcd, reste
+        pgcd, u, v, reste = algo_euclide_etendu(b, a % b)
+        return pgcd, v, u - v * (a // b), reste
     
 # ---------------- ALGORITHME D'EUCLIDE ETENDU SIMPLIFIE ----------------
 def algo_euclide_etendu_simplifie(a, b):
