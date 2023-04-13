@@ -170,3 +170,12 @@ def code_to_text(code, dictionnaire):
     for i in code:
         liste_caracteres.append(recuperer_valeur(dictionnaire, i))
     return liste_caracteres
+
+# ---------------- DECOUPER UN MESSAGE EN BLOCS DE TAILLE X ----------------
+def decouper_message(message, taille_bloc):
+    liste_blocs = []
+    while(len(message) > taille_bloc):
+        liste_blocs.append(message[:taille_bloc])
+        message = message[taille_bloc:]
+    liste_blocs.append(message)
+    return liste_blocs
