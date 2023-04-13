@@ -60,3 +60,13 @@ def algo_euclide_etendu_simplifie(a, b):
         u_prime = us - q * u_prime
         v_prime = vs - q * v_prime
     return r, u, v
+
+# ---------------- GENERATION D'UN NOMBRE PREMIER X où [2 < X < 2^bit_size]  ----------------
+# OBJECTIF : Géneration d'un nombre premier compris entre 2 et 2^bit_size
+# Rappel : Il faut générer deux nombres premiers de l'ordre de a bits pour obtenir un module n de taille 2a bits
+def generer_nombre_premier(bit_size):
+    valeur_max = 2**(bit_size)
+    while True:
+        x = random.randint(2,valeur_max)
+        if test_de_primalite(x):
+            return x

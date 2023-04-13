@@ -37,3 +37,9 @@ print("u = ", u)
 print("v = ", v)
 print("PGCD = ", pgcd)
 print()
+
+# ---------------- GENERATION D'UN NOMBRE PREMIER ----------------
+print("Test de génération de nombres premiers :")
+print(generer_nombre_premier(4))
+print(generer_nombre_premier(4))
+print()
