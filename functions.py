@@ -131,3 +131,14 @@ def factorisation(n):
         if n % i == 0:
             return i, n // i
     return None, None
+
+# ---------------- MANIPULATION D'UN DICTIONNAIRE ----------------
+def afficher_clef(dictionnaire, x):
+    for clef, valeur in dictionnaire.items():
+        if valeur == x:
+            return clef
+
+def afficher_valeur(dictionnaire, x):
+    for clef, valeur in dictionnaire.items():
+        if clef == x:
+            return valeur
