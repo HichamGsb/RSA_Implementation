@@ -43,3 +43,20 @@ def algo_euclide_etendu(a, b):
     else:
         u, v, pgcd, reste = algo_euclide_etendu(b, a % b)
         return v, u - v * (a // b), pgcd, reste
+    
+# ---------------- ALGORITHME D'EUCLIDE ETENDU SIMPLIFIE ----------------
+def algo_euclide_etendu_simplifie(a, b):
+    r = a
+    r_prime = b
+    u = 1
+    v = 0
+    u_prime = 0
+    v_prime = 1
+    while(r_prime != 0):
+        q = r // r_prime
+        rs, us, vs = r, u, v
+        r, u, v = r_prime, u_prime, v_prime
+        r_prime = rs - q * r_prime
+        u_prime = us - q * u_prime
+        v_prime = vs - q * v_prime
+    return r, u, v
