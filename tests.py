@@ -38,8 +38,14 @@ print("v = ", v)
 print("PGCD = ", pgcd)
 print()
 
-# ---------------- GENERATION D'UN NOMBRE PREMIER ----------------
+# ---------------- GENERATION D'UN NOMBRE PREMIER X où [2 < X < 2^bit_size] ----------------
 print("Test de génération de nombres premiers :")
 print(generer_nombre_premier(4))
 print(generer_nombre_premier(4))
 print()
+
+# ---------------- GENERATION D'UNE PAIRE DE CLES PUBLIQUE / PRIVEE ----------------
+print("Test de génération de clefs (e,n), (d,n):")
+public_key, private_key = generate_keys(16)
+print("Clef publique : ", public_key)
+print("Clef privée : ", private_key)

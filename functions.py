@@ -61,7 +61,7 @@ def algo_euclide_etendu_simplifie(a, b):
         v_prime = vs - q * v_prime
     return r, u, v
 
-# ---------------- GENERATION D'UN NOMBRE PREMIER X où [2 < X < 2^bit_size]  ----------------
+# ---------------- GENERATION D'UN NOMBRE PREMIER X où [2 < X < 2^bit_size] ----------------
 # OBJECTIF : Géneration d'un nombre premier compris entre 2 et 2^bit_size
 # Rappel : Il faut générer deux nombres premiers de l'ordre de a bits pour obtenir un module n de taille 2a bits
 def generer_nombre_premier(bit_size):
@@ -70,3 +70,32 @@ def generer_nombre_premier(bit_size):
         x = random.randint(2,valeur_max)
         if test_de_primalite(x):
             return x
+        
+# ---------------- GENERATION D'UNE PAIRE DE CLES PUBLIQUE / PRIVEE ----------------
+# OBJECTIF : Générer une paire de clés (clé publique, clé privée) en fonction de la taille de la clé (modulo n) en bits
+def generate_keys(bits):
+    # Il faut générer deux nombres premiers de l'ordre de a bits pour obtenir un module n de taille 2a bits
+    # On génère donc deux nombres premiers de l'ordre de n_prime = a/2 bits
+    factor_bit_size = bits//2
+    p = generer_nombre_premier(factor_bit_size)
+    q = generer_nombre_premier(factor_bit_size)
+    while p == q:
+        p = generer_nombre_premier(factor_bit_size)
+        
+    n = p * q
+    phi_n = (p - 1) * (q - 1)
+
+    # Choisir e tel que 2 < e < phi(n) et PGCD(e, phi(n)) = 1
+    while True:
+        e = random.randint(2, phi_n)
+        if(pgcd(e, phi_n) == 1):
+            break
+
+    # Calculer d tel que e.d + k.phi(n) = 1
+    pgdc, d, v, reste = algo_euclide_etendu(e, phi_n)
+    
+    # Tant que d est négatif, on ajoute phi(n) à d
+    while d < 0:
+        d = d + phi_n
+
+    return ((e, n), (d, n))
