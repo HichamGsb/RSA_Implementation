@@ -78,6 +78,10 @@ def generer_nombre_premier(bit_size):
 # Objectif : Améliorer la compréhension du code (simplification de retour de u)
 def inversion_modulaire(a, n):
     pgcd, u, v, reste = algo_euclide_etendu(a, n)
+    
+    # Tant que u est négatif, on ajoute n à u
+    while u < 0:
+        u = u + n
     return u
 
 # ---------------- GENERATION D'UNE PAIRE DE CLES PUBLIQUE / PRIVEE ----------------
@@ -102,10 +106,6 @@ def generate_keys(bits):
 
     # Calculer d tel que e.d + k.phi(n) = 1
     d = inversion_modulaire(e, phi_n)
-    
-    # Tant que d est négatif, on ajoute phi(n) à d
-    while d < 0:
-        d = d + phi_n
 
     return ((e, n), (d, n))
 
