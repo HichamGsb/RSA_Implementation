@@ -92,7 +92,7 @@ def generate_keys(bits):
         p = generer_nombre_premier(factor_bit_size)
         
     n = p * q
-    phi_n = (p - 1) * (q - 1)
+    phi_n = calculer_phi_n(p, q)
 
     # Choisir e tel que 2 < e < phi(n) et PGCD(e, phi(n)) = 1
     while True:
@@ -118,6 +118,10 @@ def chiffrer_dechiffrer(message, cle):
     u, n = cle
     message_prime = pow(message, u, n)
     return message_prime
+
+# ---------------- CALCUL DE PHI(n)----------------
+def calculer_phi_n(p, q):
+    return (p - 1) * (q - 1)
 
 # ---------------- FACTORISATION ----------------
 # Il s'agit là  d'un algorithme simple de brut force

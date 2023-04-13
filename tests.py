@@ -73,6 +73,12 @@ print("Message chiffré: ", msg_chiffre)
 print("Message déchiffré: ", msg_dechiffre)
 print()
 
+# ---------------- CALCUL DE PHI(n) ----------------
+print("Test du calcul de phi_n :")
+p, q = 7, 11
+phi_n = calculer_phi_n(p, q)
+print(phi_n)
+
 # ---------------- FACTORISATION ----------------
 print("Test de factorisation :")
 tableau = [6, 26 , 39 , 51 , 2471 , 2479 , 2141229473 , 2141229499 , 998845402120303 , 998845402120339 , 999993647341131 , 999993647341147 , 999999505837877, 999999505837879]
