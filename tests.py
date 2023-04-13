@@ -53,6 +53,7 @@ print()
 
 # ---------------- CHIFFREMENT / DECHIFFREMENT ----------------
 # Génération de la clé publique et de la clé privée
+print("Test de chiffrement / déchiffrement :")
 public_key, private_key = generate_keys(16)
 print("Clef publique : ", public_key)
 print("Clef privée : ", private_key)
@@ -70,3 +71,20 @@ msg_dechiffre = chiffrer_dechiffrer(msg_chiffre, private_key)
 print("Message original: ", message)
 print("Message chiffré: ", msg_chiffre)
 print("Message déchiffré: ", msg_dechiffre)
+print()
+
+# ---------------- FACTORISATION ----------------
+print("Test de factorisation :")
+tableau = [6, 26 , 39 , 51 , 2471 , 2479 , 2141229473 , 2141229499 , 998845402120303 , 998845402120339 , 999993647341131 , 999993647341147 , 999999505837877, 999999505837879]
+for i in tableau:
+    print("n = ", i)
+    p, q = factorisation(i)
+    if (p == None) or (q == None) :
+        print("Impossible de factoriser n")
+        print()
+    else :
+        print("p = ", p)
+        print("Test de primalite : " , test_de_primalite(p))
+        print("q = ", q)
+        print("Test de primalite : " , test_de_primalite(q))
+        print()

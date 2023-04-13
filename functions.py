@@ -1,6 +1,7 @@
 # Ce fichier contient les fonctions utilisées dans le programme principal.
 
 import random
+from math import sqrt
 
 # ---------------- CALCUL DU PGCD ----------------
 # OBJECTIF : Calculer le PGCD de deux entiers A et B.
@@ -16,7 +17,9 @@ def pgcd(a, b):
 # OBJECTIF : Déterminer si un nombre est premier ou non.
 def test_de_primalite(number):
     # Si n est divisible par 2, il n'est pas premier
-    if number % 2 == 0:
+    if number == 2:
+        return True
+    elif number % 2 == 0:
         return False
     # Si n n'est pas divisble par 2, on teste si n est divisible par un nombre impair compris entre 3 et la racine carrée de n
     else:
@@ -115,3 +118,12 @@ def chiffrer_dechiffrer(message, cle):
     u, n = cle
     message_prime = pow(message, u, n)
     return message_prime
+
+# ---------------- FACTORISATION ----------------
+# Il s'agit là  d'un algorithme simple de brut force
+# Tout diviseur de n doit être inférieur ou égal à sa racine carrée.
+def factorisation(n):
+    for i in range(2, int(sqrt(n))):
+        if n % i == 0:
+            return i, n // i
+    return None, None
