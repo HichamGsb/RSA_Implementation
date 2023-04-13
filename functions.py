@@ -142,3 +142,16 @@ def afficher_valeur(dictionnaire, x):
     for clef, valeur in dictionnaire.items():
         if clef == x:
             return valeur
+        
+# ---------------- CALCUL DE LA TAILLE DU BLOC ----------------
+# OBJECTIF : Calculer la taille du bloc à partir du nombre de caractères du dictionnaire et de la taille en bits du modulo n
+# Rappels :
+    # Pour calculer la taille du bloc pour le message en clair, il faut déterminer le plus grand entier m tel que 40^m < n_bits.
+    # Le bloc sera alors consitiué de m caractères.
+def calculer_taille_bloc(nombre_de_caracteres, n):
+    taille_bloc = 1
+    x = nombre_de_caracteres**taille_bloc
+    while(x < n):
+        x = nombre_de_caracteres**taille_bloc
+        taille_bloc += 1
+    return taille_bloc - 2
