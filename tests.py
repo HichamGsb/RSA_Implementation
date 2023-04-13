@@ -12,3 +12,16 @@ print("Test de primalité :")
 print(test_de_primalite(12))
 print(test_de_primalite(7))
 print()
+
+# ---------------- ALGORITHME D'EUCLIDE ETENDU ----------------
+print("Test de l'algorithme d'Euclide étendu :")
+a = 11
+b = 55
+u, v, pgcd, reste = algo_euclide_etendu(a, b)
+print("a = ", a)
+print("b = ", b)
+print("u = ", u)
+print("v = ", v)
+print("PGCD = ", pgcd)
+print("Reste = ", reste)
+print()
