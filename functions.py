@@ -179,3 +179,34 @@ def decouper_message(message, taille_bloc):
         message = message[taille_bloc:]
     liste_blocs.append(message)
     return liste_blocs
+
+# ---------------- TRANSFORMER UNE LISTE DE BLOCS DE TEXTE EN UNE LISTE DE CHIFFRES ----------------
+def text_blocs_list_to_int_blocs_list(liste_blocs, dictionnaire):
+    liste_chiffres = []
+    for i in liste_blocs:
+        liste_chiffres.append(text_to_code(i, dictionnaire))
+    return liste_chiffres
+
+# ---------------- REVERSE UNE LISTE DE LISTES ----------------
+# Exemple : [[1, 14, 13, 9, 14], [20, 17]] -> [[14, 9, 13, 14, 1], [17, 20]]
+def reverse_list(liste):
+    liste_inverse = []
+    for i in liste:
+        liste_inverse.append(i[::-1])
+    return liste_inverse
+
+# ---------------- ENCODER UNE LISTE DE LISTES DE CHIFFRES SELON L'EMPLACEMENT DES CHIFFRES ----------------
+# Exemple : "BONJOUR" en taille de bloc M
+# BONJO -> 1 14 13 9 14 -> 14 9 13 14 1 -> 14*M**0 + 9*M**1 + 13*M**2 + 14*M**3 + 1*M**4
+# UR    -> 20 17        -> 17 20        -> 17*M**0 + 20*M**1
+def encoder(liste, nombre_de_caracteres):
+    resultat = []
+    tmp = 0
+    for i in liste:
+        x = 0
+        for j in i:
+            tmp += j * (nombre_de_caracteres**x)
+            x += 1
+        resultat.append(tmp)
+        tmp = 0
+    return resultat

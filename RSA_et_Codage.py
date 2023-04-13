@@ -43,7 +43,21 @@ print("texte_chiffre =", texte_chiffre)
 print("texte_dechiffre =", texte_dechiffre)
 print()
 
-# Decouper le message en blocs de taille x
+# Découper le message clair en blocs
 print("Decoupage du message en blocs de taille", taille_bloc)
 liste_blocs = decouper_message(texte, taille_bloc)
 print(liste_blocs)
+print()
+
+# Transformer une liste de blocs en liste de chiffres
+# Valeur -> Clef
+liste_clefs = text_blocs_list_to_int_blocs_list(liste_blocs, dictionnaire)
+print(liste_clefs)
+
+# Reverse la liste pour pouvoir utiliser les indices en guise d'exponentiel
+# [[1, 14, 13, 9, 14], [20, 17]] -> [[14, 9, 13, 14, 1], [17, 20]]
+liste_clefs = reverse_list(liste_clefs)
+print(liste_clefs)
+
+liste_chiffree = encoder(liste_clefs, nombre_de_caracteres)
+print(liste_chiffree)
