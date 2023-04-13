@@ -73,7 +73,7 @@ def generer_nombre_premier(bit_size):
         
 # ---------------- INVERSION MODULAIRE ----------------
 # Objectif : Améliorer la compréhension du code (simplification de retour de u)
-def inverse_modulaire(a, n):
+def inversion_modulaire(a, n):
     pgcd, u, v, reste = algo_euclide_etendu(a, n)
     return u
 
@@ -98,10 +98,20 @@ def generate_keys(bits):
             break
 
     # Calculer d tel que e.d + k.phi(n) = 1
-    d = inverse_modulaire(e, phi_n)
+    d = inversion_modulaire(e, phi_n)
     
     # Tant que d est négatif, on ajoute phi(n) à d
     while d < 0:
         d = d + phi_n
 
     return ((e, n), (d, n))
+
+# ---------------- CHIFFREMENT / DECHIFFREMENT ----------------
+# OBJECTIF : Chiffrer / Déchiffrer un message grâce à l'exponentiation modulaire
+# Rappels :
+    # C = M^e mod n
+    # M = C^d mod n
+def chiffrer_dechiffrer(message, cle):
+    u, n = cle
+    message_prime = pow(message, u, n)
+    return message_prime
