@@ -66,6 +66,8 @@ liste_clefs = reverse_list(liste_clefs)
 print(liste_clefs)
 print()
 
+# ----------------- PARTIE CHIFFREMENT -----------------
+
 # Encodage : Transformer une liste de listes de chiffres selon l'emplacement des chiffres
 # Exemple : "BONJOUR" associé à un dictionnaire de taille M (ici 40)
 # BONJO -> 1 14 13 9 14 -> 14 9 13 14 1 -> 14*M**0 + 9*M**1 + 13*M**2 + 14*M**3 + 1*M**4
@@ -84,19 +86,35 @@ liste_chiffree = chiffrer_dechiffrer_liste(liste_encodee, clef_publique)
 print(liste_chiffree)
 print()
 
+print("Décodage de la liste chiffrée")
+liste_chiffree_decodee = decoder(liste_chiffree, nombre_de_caracteres)
+print(liste_chiffree_decodee)
+print()
+
+print("Liste de chiffres en liste de caractères (grâce au dictionnaire)")
+liste_decodee_en_liste_de_lettres = int_blocs_list_to_text_blocs_list(liste_chiffree_decodee, dictionnaire)
+print(liste_decodee_en_liste_de_lettres)
+
+# Liste de caractères -> Chaîne de caractères
+message_decode_string = concatener(liste_decodee_en_liste_de_lettres)
+print(message_decode_string)
+print()
+
+#----------------- PARTIE DECHIFFREMENT -----------------
+
 # Déchiffrer la liste en une autre liste
 print("Déchiffrement de la liste")
 liste_dechiffree = chiffrer_dechiffrer_liste(liste_chiffree, clef_privee)
 print(liste_dechiffree)
 print()
 
-print("Décodage")
-liste_decodee = decoder(liste_dechiffree, nombre_de_caracteres)
-print(liste_decodee)
+print("Décodage de la liste déchiffrée")
+liste_dechiffree_decodee = decoder(liste_dechiffree, nombre_de_caracteres)
+print(liste_dechiffree_decodee)
 print()
 
 print("Liste de chiffres en liste de caractères (grâce au dictionnaire)")
-liste_decodee_en_liste_de_lettres = int_blocs_list_to_text_blocs_list(liste_decodee, dictionnaire)
+liste_decodee_en_liste_de_lettres = int_blocs_list_to_text_blocs_list(liste_dechiffree_decodee, dictionnaire)
 print(liste_decodee_en_liste_de_lettres)
 
 # Liste de caractères -> Chaîne de caractères
