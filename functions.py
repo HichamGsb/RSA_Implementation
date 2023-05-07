@@ -196,7 +196,7 @@ def reverse_list(liste):
     return liste_inverse
 
 # ---------------- ENCODER UNE LISTE DE LISTES DE CHIFFRES SELON L'EMPLACEMENT DES CHIFFRES ----------------
-# Exemple : "BONJOUR" en taille de bloc M
+# Exemple : "BONJOUR" associé à un dictionnaire de taille M (ici 40)
 # BONJO -> 1 14 13 9 14 -> 14 9 13 14 1 -> 14*M**0 + 9*M**1 + 13*M**2 + 14*M**3 + 1*M**4
 # UR    -> 20 17        -> 17 20        -> 17*M**0 + 20*M**1
 def encoder(liste, nombre_de_caracteres):
@@ -215,3 +215,10 @@ def encoder(liste, nombre_de_caracteres):
         resultat.append(somme)
         somme = 0
     return resultat
+
+# ---------------- CHIFFREMENT/DECHIFFREMENT D'UNE LISTE DE MESSAGE EN UNE LISTE DE MESSAGE CHIFFRES ----------------
+def chiffrer_dechiffrer_liste(liste, cle):
+    liste_chiffree = []
+    for i in liste:
+        liste_chiffree.append(chiffrer_dechiffrer(i, cle))
+    return liste_chiffree
