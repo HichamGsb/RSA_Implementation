@@ -54,7 +54,7 @@ print()
 # Exemple : "BONJOUR" en taille de bloc M
 # BONJO -> 1 14 13 9 14
 # UR    -> 20 17
-print("Transformation d'une liste de blocs en lise de chiffres")
+print("Transformation d'une liste de blocs en liste de chiffres")
 liste_clefs = text_blocs_list_to_int_blocs_list(liste_blocs, dictionnaire)
 print(liste_clefs)
 print()
@@ -79,13 +79,26 @@ print(liste_encodee)
 print()
 
 # Chiffrer la liste en une autre liste
-print("Chiffrement de la liste ")
+print("Chiffrement de la liste")
 liste_chiffree = chiffrer_dechiffrer_liste(liste_encodee, clef_publique)
 print(liste_chiffree)
 print()
 
 # Déchiffrer la liste en une autre liste
-print("Déchiffrement de la liste ")
+print("Déchiffrement de la liste")
 liste_dechiffree = chiffrer_dechiffrer_liste(liste_chiffree, clef_privee)
 print(liste_dechiffree)
 print()
+
+print("Décodage")
+liste_decodee = decoder(liste_dechiffree, nombre_de_caracteres)
+print(liste_decodee)
+print()
+
+print("Liste de chiffres en liste de caractères (grâce au dictionnaire)")
+liste_decodee_en_liste_de_lettres = int_blocs_list_to_text_blocs_list(liste_decodee, dictionnaire)
+print(liste_decodee_en_liste_de_lettres)
+
+# Liste de caractères -> Chaîne de caractères
+message_decode_string = concatener(liste_decodee_en_liste_de_lettres)
+print(message_decode_string)

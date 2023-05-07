@@ -187,6 +187,13 @@ def text_blocs_list_to_int_blocs_list(liste_blocs, dictionnaire):
         liste_chiffres.append(text_to_code(i, dictionnaire))
     return liste_chiffres
 
+# ---------------- TRANSFORMER UNE LISTE DE BLOCS DE CHIFFRES EN UNE LISTE DE BLOCS DE TEXTE ----------------
+def int_blocs_list_to_text_blocs_list(liste_blocs, dictionnaire):
+    liste_texte = []
+    for i in liste_blocs:
+        liste_texte.append(code_to_text(i, dictionnaire))
+    return liste_texte
+
 # ---------------- REVERSE UNE LISTE DE LISTES ----------------
 # Exemple : [[1, 14, 13, 9, 14], [20, 17]] -> [[14, 9, 13, 14, 1], [17, 20]]
 def reverse_list(liste):
@@ -222,3 +229,26 @@ def chiffrer_dechiffrer_liste(liste, cle):
     for i in liste:
         liste_chiffree.append(chiffrer_dechiffrer(i, cle))
     return liste_chiffree
+
+# ---------------- DECODER UNE LISTE DE LISTES DE CHIFFRES SELON L'EMPLACEMENT DES CHIFFRES ----------------
+def decoder(liste, nombre_de_caracteres):
+    resultat = []
+    for i in liste:
+        message = []
+        while i > 0:
+            chiffre = i % nombre_de_caracteres
+            message.append(chiffre)
+            i = (i - chiffre) // nombre_de_caracteres
+        resultat.append(list(reversed(message)))
+    return resultat
+
+# ---------------- TRANSORMER UNE LISTE DE LISTES DE CHIFFRES EN CHAINE DE CARACTERES ----------------
+def concatener(liste):
+    resultat = []
+    for i in liste:
+        for j in i:
+            resultat.append(j)
+    res = ""
+    for i in resultat:
+        res += str(i)
+    return res
