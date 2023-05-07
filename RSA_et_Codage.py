@@ -51,13 +51,25 @@ print()
 
 # Transformer une liste de blocs en liste de chiffres
 # Valeur -> Clef
+# Exemple : "BONJOUR" en taille de bloc M
+# BONJO -> 1 14 13 9 14
+# UR    -> 20 17
+print("Transformation d'une liste de blocs en lise de chiffres")
 liste_clefs = text_blocs_list_to_int_blocs_list(liste_blocs, dictionnaire)
 print(liste_clefs)
+print()
 
 # Reverse la liste pour pouvoir utiliser les indices en guise d'exponentiel
 # [[1, 14, 13, 9, 14], [20, 17]] -> [[14, 9, 13, 14, 1], [17, 20]]
+print("Reverse")
 liste_clefs = reverse_list(liste_clefs)
 print(liste_clefs)
+print()
 
+# Encodage : Transformer une liste de listes de chiffres selon l'emplacement des chiffres
+# Exemple : "BONJOUR" en taille de bloc M
+# BONJO -> 1 14 13 9 14 -> 14 9 13 14 1 -> 14*M**0 + 9*M**1 + 13*M**2 + 14*M**3 + 1*M**4
+# UR    -> 20 17        -> 17 20        -> 17*M**0 + 20*M**1
+print("Encodage")
 liste_chiffree = encoder(liste_clefs, nombre_de_caracteres)
 print(liste_chiffree)

@@ -200,13 +200,18 @@ def reverse_list(liste):
 # BONJO -> 1 14 13 9 14 -> 14 9 13 14 1 -> 14*M**0 + 9*M**1 + 13*M**2 + 14*M**3 + 1*M**4
 # UR    -> 20 17        -> 17 20        -> 17*M**0 + 20*M**1
 def encoder(liste, nombre_de_caracteres):
-    resultat = []
-    tmp = 0
+    print("Nombre de caracteres :", nombre_de_caracteres)
+    resultat = []  
+    calcul_message = 0
+    somme = 0
     for i in liste:
         x = 0
         for j in i:
-            tmp += j * (nombre_de_caracteres**x)
+            calcul_message = j * (nombre_de_caracteres**x)
+            print("Chiffre en cours", j, ",", "Calcul", calcul_message)
+            somme += calcul_message
+            print("Somme", somme)
             x += 1
-        resultat.append(tmp)
-        tmp = 0
+        resultat.append(somme)
+        somme = 0
     return resultat
