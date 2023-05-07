@@ -82,17 +82,17 @@ print()
 
 # Chiffrer la liste en une autre liste
 print("Chiffrement de la liste")
-liste_chiffree = chiffrer_dechiffrer_liste(liste_encodee, clef_publique)
-print(liste_chiffree)
+liste_encodee_chiffree = chiffrer_dechiffrer_liste(liste_encodee, clef_publique)
+print(liste_encodee_chiffree)
 print()
 
 print("Décodage de la liste chiffrée")
-liste_chiffree_decodee = decoder(liste_chiffree, nombre_de_caracteres)
-print(liste_chiffree_decodee)
+liste_encodee_chiffree_decodee = decoder(liste_encodee_chiffree, nombre_de_caracteres)
+print(liste_encodee_chiffree_decodee)
 print()
 
 print("Liste de chiffres en liste de caractères (grâce au dictionnaire)")
-liste_decodee_en_liste_de_lettres = int_blocs_list_to_text_blocs_list(liste_chiffree_decodee, dictionnaire)
+liste_decodee_en_liste_de_lettres = int_blocs_list_to_text_blocs_list(liste_encodee_chiffree_decodee, dictionnaire)
 print(liste_decodee_en_liste_de_lettres)
 
 # Liste de caractères -> Chaîne de caractères
@@ -105,17 +105,17 @@ print("----------- PARTIE DECHIFFREMENT -----------")
 print("On repart de la liste chiffrée (codage + chiffrement), pour déchiffrer la liste")
 # Déchiffrer la liste en une autre liste
 print("Déchiffrement de la liste")
-liste_dechiffree = chiffrer_dechiffrer_liste(liste_chiffree, clef_privee)
-print(liste_dechiffree)
+liste_encodee_chifree_dechiffree = chiffrer_dechiffrer_liste(liste_encodee_chiffree, clef_privee)
+print(liste_encodee_chifree_dechiffree)
 print()
 
 print("Décodage de la liste déchiffrée")
-liste_dechiffree_decodee = decoder(liste_dechiffree, nombre_de_caracteres)
-print(liste_dechiffree_decodee)
+liste_encodee_chifree_dechiffree_decodee = decoder(liste_encodee_chifree_dechiffree, nombre_de_caracteres)
+print(liste_encodee_chifree_dechiffree_decodee)
 print()
 
 print("Liste de chiffres en liste de caractères (grâce au dictionnaire)")
-liste_decodee_en_liste_de_lettres = int_blocs_list_to_text_blocs_list(liste_dechiffree_decodee, dictionnaire)
+liste_decodee_en_liste_de_lettres = int_blocs_list_to_text_blocs_list(liste_encodee_chifree_dechiffree_decodee, dictionnaire)
 print(liste_decodee_en_liste_de_lettres)
 
 # Liste de caractères -> Chaîne de caractères
